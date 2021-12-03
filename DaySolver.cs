@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AdventOfCode.Abstractions;
@@ -19,6 +20,19 @@ public abstract class DaySolver : IDisposable
 				_inputReader.Dispose();
 			}
 			return _input;
+		}
+	}
+
+	public IEnumerable<string> InputLines
+	{
+		get
+		{
+			using StringReader reader = new(Input);
+			string? line;
+			while ((line = reader.ReadLine()) is not null)
+			{
+				yield return line;
+			}
 		}
 	}
 
