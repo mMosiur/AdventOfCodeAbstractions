@@ -9,6 +9,8 @@
     <PackageId>mMosiur.AdventOfCode.Abstractions</PackageId>
     <Version>1.0.1</Version>
     <Authors>mMosiur</Authors>
+    <PackageDescription>This package contains a set of abstractions for Advent of Code puzzles.</PackageDescription>
+    <RepositoryUrl>https://github.com/mMosiur/AdventOfCodeAbstractions</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
