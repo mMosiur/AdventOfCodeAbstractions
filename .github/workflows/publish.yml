@@ -16,7 +16,9 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Create NuGet package
-      run: dotnet pack --configuration Release
-    - name: Publish NuGet package
-      run: dotnet nuget push "bin/Release/*.nupkg" --source "GitHub" --api-key "${{ secrets.GITHUB_TOKEN }}"
+	- name: Build project
+      run: dotnet build --configuration Release --no-restore
+    - name: Create package
+      run: dotnet pack --configuration Release --no-build
+    - name: Publish package
+      run: dotnet nuget push "bin/Release/mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "GitHub" --api-key "${{ secrets.GITHUB_TOKEN }}"
