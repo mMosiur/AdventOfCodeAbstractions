@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+
+  build-package:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -20,5 +21,19 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Create package
       run: dotnet pack --configuration Release --no-build
-    - name: Publish package
+    - name: Upload built package
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: package
+        path: bin/Release/mMosiur.AdventOfCode.Abstractions.*.nupkg
+
+  publish-package-to-github:
+    needs: build-package
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download built package
+      uses: actions/download-artifact@v3.0.0
+      with:
+        name: package
+    - name: Publish package to GitHub
       run: dotnet nuget push "bin/Release/mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "GitHub" --api-key "${{ secrets.GITHUB_TOKEN }}"
