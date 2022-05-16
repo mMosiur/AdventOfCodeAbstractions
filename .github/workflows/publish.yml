@@ -35,7 +35,16 @@ jobs:
       uses: actions/download-artifact@v3.0.0
       with:
         name: package
-    - name: show content
-      run: ls -la
     - name: Publish package to GitHub
       run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "https://nuget.pkg.github.com/mMosiur/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}"
+
+  publish-package-to-nuget:
+    needs: build-package
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download built package
+      uses: actions/download-artifact@v3.0.0
+      with:
+        name: package
+    - name: Publish package to GitHub
+      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --api-key "${{ secrets.NUGET_API_KEY }}"
