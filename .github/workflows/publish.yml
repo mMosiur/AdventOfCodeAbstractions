@@ -36,7 +36,7 @@ jobs:
       with:
         name: package
     - name: Publish package to GitHub
-      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "https://nuget.pkg.github.com/mMosiur/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "https://nuget.pkg.github.com/mMosiur/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
 
   publish-package-to-nuget:
     needs: build-package
@@ -47,4 +47,4 @@ jobs:
       with:
         name: package
     - name: Publish package to GitHub
-      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --api-key "${{ secrets.NUGET_API_KEY }}"
+      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key "${{ secrets.NUGET_API_KEY }}" --skip-duplicate
