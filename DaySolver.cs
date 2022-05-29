@@ -37,8 +37,8 @@ public abstract class DaySolver
 	/// </summary>
 	public DaySolver(DaySolverOptions options)
 	{
-		ArgumentNullException.ThrowIfNull(options.InputFilePath);
-		Input = File.ReadAllText(options.InputFilePath);
+		ArgumentNullException.ThrowIfNull(options.InputFilepath);
+		Input = File.ReadAllText(options.InputFilepath);
 	}
 
 	/// <summary>

@@ -14,9 +14,9 @@ public class DaySolverOptions
 
 	/// <summary>
 	/// A path to the input file.
-	/// Defaults to <c>input.txt</c>.
+	/// Defaults to <c>input.txt</c>, that is, the file named <c>input.txt</c> in the current directory.
 	/// </summary>
-	public string InputFilePath { get; set; } = "input.txt";
+	public string InputFilepath { get; set; } = "input.txt";
 
 	/// <summary>
 	/// Returns <typeparamref name="T"/> object that is a result of creating an empty, default one
