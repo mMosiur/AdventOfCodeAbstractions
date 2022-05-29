@@ -6,10 +6,15 @@
     <RootNamespace>AdventOfCode.Abstractions</RootNamespace>
 
     <PackageId>mMosiur.AdventOfCode.Abstractions</PackageId>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
     <Authors>mMosiur</Authors>
     <Description>This package contains a set of abstractions for Advent of Code puzzles.</Description>
     <RepositoryUrl>https://github.com/mMosiur/AdventOfCodeAbstractions</RepositoryUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath=""/>
+  </ItemGroup>
 
 </Project>
