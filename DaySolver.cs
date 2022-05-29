@@ -21,10 +21,10 @@ public abstract class DaySolver
 		}
 	}
 
-	public DaySolver(string inputFilePath)
+	public DaySolver(DaySolverOptions options)
 	{
-		ArgumentNullException.ThrowIfNull(inputFilePath);
-		Input = File.ReadAllText(inputFilePath);
+		ArgumentNullException.ThrowIfNull(options.InputFilePath);
+		Input = File.ReadAllText(options.InputFilePath);
 	}
 
 	public abstract string SolvePart1();
