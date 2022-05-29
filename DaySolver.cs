@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -33,12 +32,14 @@ public abstract class DaySolver
 	}
 
 	/// <summary>
-	/// A constructor that reads the input file from a location provided by <paramref name="options"/> and stores its content.
+	/// A constructor that reads the input text from according to <paramref name="options"/> and stores its content.
 	/// </summary>
 	public DaySolver(DaySolverOptions options)
 	{
-		ArgumentNullException.ThrowIfNull(options.InputFilepath);
-		Input = File.ReadAllText(options.InputFilepath);
+		TextReader? reader = options.InputReader;
+		reader ??= File.OpenText(options.InputFilepath);
+		Input = reader.ReadToEnd();
+		reader.Dispose();
 	}
 
 	/// <summary>
