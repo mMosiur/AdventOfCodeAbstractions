@@ -29,10 +29,11 @@ public class DaySolverOptions
 
 	/// <summary>
 	/// Returns <typeparamref name="T"/> object that is a result of creating an empty, default one
-	/// and applying configurations from <paramref name="configure"/> action if present.
+	/// and applying configurations from <paramref name="configure"/> action.
 	/// </summary>
-	public static T FromConfigureAction<T>(Action<T>? configure) where T : DaySolverOptions, new()
+	public static T FromConfigureAction<T>(Action<T> configure) where T : DaySolverOptions, new()
 	{
+		ArgumentNullException.ThrowIfNull(configure);
 		T options = new();
 		configure?.Invoke(options);
 		return options;
