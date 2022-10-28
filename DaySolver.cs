@@ -8,17 +8,32 @@ namespace AdventOfCode.Abstractions;
 /// It is a base class for all solvers and provides a common interface of methods for them,
 /// as well as a common implementation for input file reading.
 /// </summary>
-public abstract class DaySolver
+public abstract class DaySolver : IDaySolver
 {
+	/// <summary>
+	/// Property <c>Year</c> represents the year of the Advent of Code event the puzzle of the <see cref="DaySolver"/> belongs to.
+	/// </summary>
+	public abstract int Year { get; }
+
+	/// <summary>
+	/// Property <c>Day</c> represents the day of the Advent of Code event the puzzle of the <see cref="DaySolver"/> belongs to.
+	/// </summary>
+	public abstract int Day { get; }
+
+	/// <summary>
+	/// Property <c>Title</c> represents the title of the day of the Advent of Code event the <see cref="DaySolver"/> belongs to.
+	/// </summary>
+	public abstract string Title { get; }
+
 	/// <summary>
 	/// The content that was read from the input file.
 	/// </summary>
-	public string Input { get; }
+	protected string Input { get; }
 
 	/// <summary>
 	/// The lines of the input file (excluding one last empty line after newline break).
 	/// </summary>
-	public IEnumerable<string> InputLines
+	protected IEnumerable<string> InputLines
 	{
 		get
 		{
@@ -32,14 +47,12 @@ public abstract class DaySolver
 	}
 
 	/// <summary>
-	/// A constructor that reads the input text from according to <paramref name="options"/> and stores its content.
+	/// A constructor that reads the input text according to <paramref name="options"/> and stores its content.
 	/// </summary>
 	public DaySolver(DaySolverOptions options)
 	{
-		TextReader? reader = options.InputReader;
-		reader ??= File.OpenText(options.InputFilepath);
+		using TextReader reader = options.InputReader ?? File.OpenText(options.InputFilepath);
 		Input = reader.ReadToEnd();
-		reader.Dispose();
 	}
 
 	/// <summary>
