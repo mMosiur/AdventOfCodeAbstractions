@@ -51,8 +51,19 @@ public abstract class DaySolver : IDaySolver
 	/// </summary>
 	public DaySolver(DaySolverOptions options)
 	{
-		using TextReader reader = options.InputReader ?? File.OpenText(options.InputFilepath);
-		Input = reader.ReadToEnd();
+		try
+		{
+			using TextReader reader = options.InputReader ?? File.OpenText(options.InputFilepath);
+			Input = reader.ReadToEnd();
+		}
+		catch (FileNotFoundException e)
+		{
+			throw new InputException($"Input file \"{e.FileName}\" was not found.", e);
+		}
+		catch (IOException e)
+		{
+			throw new InputException($"An error occurred while reading the input file \"{options.InputFilepath}\".", e);
+		}
 	}
 
 	/// <summary>
