@@ -23,7 +23,7 @@ public class DaySolverOptions
 	/// <summary>
 	/// A <see cref="TextReader"/> that reads the input text.
 	/// When <c>null</c>, the input is read from file <see cref="InputFilepath"/>.
-	/// Defaults tp <c>null</c>.
+	/// Defaults to <c>null</c>.
 	/// </summary>
 	public TextReader? InputReader { get; set; } = null;
 
