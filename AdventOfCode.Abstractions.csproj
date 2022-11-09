@@ -10,7 +10,7 @@
   <PropertyGroup>
     <PackageId>mMosiur.AdventOfCode.Abstractions</PackageId>
     <Title>Advent of Code Abstractions</Title>
-    <Version>4.2.0</Version>
+    <Version>4.3.0</Version>
     <Authors>mMosiur</Authors>
     <Description>This package contains a set of abstractions for Advent of Code puzzles.</Description>
     <RepositoryUrl>https://github.com/mMosiur/AdventOfCodeAbstractions</RepositoryUrl>
