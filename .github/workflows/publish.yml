@@ -31,12 +31,14 @@ jobs:
     needs: build-package
     runs-on: ubuntu-latest
     steps:
+    - name: Add GitHub NuGet source
+      run: dotnet nuget add source --username mMosiur --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mMosiur/index.json"
     - name: Download built package
       uses: actions/download-artifact@v3.0.0
       with:
         name: package
     - name: Publish package to GitHub
-      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --source "https://nuget.pkg.github.com/mMosiur/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
+      run: dotnet nuget push "mMosiur.AdventOfCode.Abstractions.*.nupkg" --source github --skip-duplicate
 
   publish-package-to-nuget:
     needs: build-package
