@@ -14,6 +14,7 @@
     <Authors>mMosiur</Authors>
     <Description>This package contains a set of abstractions for Advent of Code puzzles.</Description>
     <RepositoryUrl>https://github.com/mMosiur/AdventOfCodeAbstractions</RepositoryUrl>
+    <ProjectUrl>https://github.com/mMosiur/AdventOfCodeAbstractions</ProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
