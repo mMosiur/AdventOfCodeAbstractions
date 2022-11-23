@@ -7,7 +7,7 @@ namespace AdventOfCode;
 /// Exception thrown when the command line arguments are invalid.
 /// </summary>
 [Serializable]
-public class CommandLineException : Exception
+public class CommandLineException : AdventOfCodeException
 {
 	/// <inheritdoc />
 	public CommandLineException() { }

@@ -7,7 +7,7 @@ namespace AdventOfCode;
 /// An exception thrown when the puzzle input could not be properly interpreted.
 /// </summary>
 [Serializable]
-public class InputException : Exception
+public class InputException : AdventOfCodeException
 {
 	/// <inheritdoc />
 	public InputException() { }
