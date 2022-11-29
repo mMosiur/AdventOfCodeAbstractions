@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace AdventOfCode.Abstractions;
 
@@ -65,6 +67,14 @@ public abstract class DaySolver : IDaySolver
 			throw new InputException($"An error occurred while reading the input file \"{options.InputFilepath}\".", e);
 		}
 	}
+
+	/// <summary>
+	/// Returns an enumerator that iterates over <see cref="Input"/> lines using <see cref="ReadOnlySpan{char}"/>.
+	/// </summary>
+	/// <remarks>
+	/// Note that the enumerator does not skip the last empty line after newline break as <see cref="InputLines"/> does.
+	/// </remarks>
+	protected SpanLineEnumerator EnumerateInputLines() => Input.AsSpan().EnumerateLines();
 
 	/// <summary>
 	/// A method that solves the first part of the day puzzle.

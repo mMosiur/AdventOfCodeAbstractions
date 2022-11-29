@@ -7,7 +7,7 @@ namespace AdventOfCode;
 /// Exception thrown when a day solver fails to solve a puzzle.
 /// </summary>
 [Serializable]
-public class DaySolverException : Exception
+public class DaySolverException : AdventOfCodeException
 {
 	/// <inheritdoc />
 	public DaySolverException() { }
