@@ -15,7 +15,6 @@ namespace AdventOfCode;
 /// <item><see cref="InputException"/></item>
 /// </list>
 /// </remarks>
-[Serializable]
 public abstract class AdventOfCodeException : Exception
 {
 	/// <inheritdoc />
@@ -26,7 +25,4 @@ public abstract class AdventOfCodeException : Exception
 
 	/// <inheritdoc />
 	public AdventOfCodeException(string message, Exception innerException) : base(message, innerException) { }
-
-	/// <inheritdoc />
-	protected AdventOfCodeException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 }
