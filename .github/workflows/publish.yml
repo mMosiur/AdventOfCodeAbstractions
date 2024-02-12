@@ -36,7 +36,7 @@ jobs:
     - name: Add GitHub NuGet source
       run: dotnet nuget add source --username mMosiur --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mMosiur/index.json"
     - name: Download built package
-      uses: actions/download-artifact@v3.0.2
+      uses: actions/download-artifact@v4.1.2
       with:
         name: package
     - name: Publish package to GitHub
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download built package
-      uses: actions/download-artifact@v3.0.2
+      uses: actions/download-artifact@v4.1.2
       with:
         name: package
     - name: Publish package to NuGet
