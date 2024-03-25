@@ -4,11 +4,20 @@ updates:
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     schedule:
       interval: "weekly"
 
   # Maintain dependencies for NuGet
   - package-ecosystem: "nuget"
     directory: "/"
+    groups:
+      nuget-packages:
+        patterns:
+          - "*"
     schedule:
       interval: "weekly"
+    target-branch: "staging"
