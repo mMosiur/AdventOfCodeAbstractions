@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <RootNamespace>AdventOfCode.Abstractions</RootNamespace>
   </PropertyGroup>
@@ -10,7 +10,7 @@
   <PropertyGroup>
     <PackageId>mMosiur.AdventOfCode.Abstractions</PackageId>
     <Title>Advent of Code Abstractions</Title>
-    <Version>4.4.1</Version>
+    <Version>4.4.2</Version>
     <Authors>mMosiur</Authors>
     <Description>This package contains a set of abstractions for Advent of Code puzzles.</Description>
     <RepositoryUrl>https://github.com/mMosiur/AdventOfCodeAbstractions</RepositoryUrl>
